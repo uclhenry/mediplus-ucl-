@@ -1,0 +1,54 @@
+<html>
+
+<head>
+<script src="jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+
+Enter your name: <input type="text" id="fname" onkeyup="upperCase(this.id)">
+<h1 id="header">Old Header</h1>
+<h1 id="test2">test2</h1>
+<h1 id="test3">test3</h1>
+<form action="index.html">
+  <select name="item" id = "item">
+    <option value="1">c1</option>
+    <option value="2">c2</option>
+    <option value="3">c3</option>
+  </select>
+  <input type="button" onclick="myFunction()" value="confirm">
+  
+<input type="radio" name="browser" onclick="check(this.value)" value="Internet Explorer">Internet Explorer<br />
+<input type="radio" name="browser" onclick="check(this.value)" value="Firefox">Firefox<br />
+<input type="radio" name="browser" onclick="check(this.value)" value="Netscape">Netscape<br />
+<input type="radio" name="browser" onclick="check(this.value)" value="Opera">Opera<br />
+<br />
+
+get thr radio <input type="text" id="answer" size="20">
+</form>
+</body>
+<script type="text/javascript">
+function upperCase(x)
+{
+
+var y=document.getElementById(x).value;
+//document.getElementById(x).value=y.toUpperCase();
+
+var element = document.getElementById("header");
+element.innerHTML = y;
+
+
+}
+//document.getElementsByName('item');
+
+function myFunction() {
+    //document.getElementById("demo").innerHTML = "Hello World";
+	document.getElementById("test2").innerHTML = document.getElementById("item").value ;
+	document.getElementById("test3").innerHTML = document.getElementById("item").value ;
+}
+function check(browser)
+  {
+  document.getElementById("answer").value=browser
+  }
+</script>
+</html>
