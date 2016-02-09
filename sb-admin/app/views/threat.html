@@ -306,7 +306,7 @@ colours: ['#F7464A']
 newdata.data[0] = protest.data[0];
 //newdata.series = protest.series;
 if(getId()==1)
-document.getElementById("testcln").innerHTML = ' <div class="col-sm-4" id="testlinechart1"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
+document.getElementById("testcln").innerHTML = ' <div class="col-sm-4" id="' +   getlinecharId() +'"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
 //document.getElementById("testcln2").innerHTML = ' <div class="col-sm-4" id="testlinechart2"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
 if(getId()==2)
 document.getElementById("testcln2").innerHTML = ' <div class="col-sm-4" id="testlinechart2"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
