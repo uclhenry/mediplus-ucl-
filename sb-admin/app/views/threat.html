@@ -1,141 +1,539 @@
+<link rel="stylesheet" href="/styles/normalize.css" />
+<link rel="stylesheet" href="/styles/ion.rangeSlider.css" />
+<link rel="stylesheet" href="/styles/ion.rangeSlider.skinFlat.css" />
 
+<div class = "row">
+    <div class = "col-lg-12 col-sm-12">
+        <p id="demo"></p>
+        <p id="myName"></p>
+    </div>
+</div>
+
+
+
+<!--Proper code below->
+<-->
 <div class="row">
     <div class="col-lg-12">
+        <input type="text" id="range" value="" name="range" />
         <p> </p>
     </div>
     <!-- /.col-lg-12 -->
 </div>
 <div class="row">
-    <div class="col-lg-12 col-sm-12" >
-        <div class="panel panel-default" style="border:0;margin-bottom:0;">
 
+    
+
+
+    <div class="col-lg-12 col-sm-12" >
+
+        <div class="panel panel-default" style="border:0;margin-bottom:0;">
             <!--<div class="panel-heading">Timeline</div>-->
             <div class="panel-body" style="padding:0">
+         <!--       <button type="button" id = "timelineSubmit">Submit Time</button>    -->
                 <!--<canvas></canvas>-->
-                <div id="timeline"></div>
+             <!--   <div id="timeline"></div>-->
             </div>
         </div>
     </div>
+<!--    
     <script src="bower_components/timelinejs/js/timeline.js"></script>
     <script>
       var timeline = new VCO.Timeline('timeline', 'bower_components/timelinejs/examples/threat.json', {
         timenav_position:"top",
         scale_factor: "0.5",
     });
-
-
-
-  </script>
+  </script> -->
 </div>
+
+
 
 <div class="row col-lg-12">
     <div class="panel panel-default">
         <!--<div class="panel-heading">Rumours</div>-->
         <div class="panel-body">
 
+            <div class="col-sm-12" ng-controller="ChartCtrl">
 
-            <div class="col-sm-12" ng-controller="ChartCtrl" id="add">
-				 <div class="col-sm-4" >
-                <span id = "span">
-				1
-                    <canvas id="line customline-v1" class="chart chart-line chart-xl" data="swineline.data" labels="swineline.labels" legend="true"
-                    click="line.onClick" series="swineline.series" options="swineline.options" colours="swineline.colours"></canvas>
-                </span>
-				 </div>
-				 <span id = "span2">2 </span>
-
-                <div class="col-sm-4" id="line-chart2">
-				<script type="text/javascript">
-
-				
-				 				document.getElementById("line-chart2").innerHTML = '<canvas id="line_find" class="chart chart-line chart-xl ng-isolate-scope" data="survellianceline.data" labels="survellianceline.labels" legend="true" series="survellianceline.series" click="survellianceline.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas>';
-
-				</script>				
-				
-				</div>
-				
-				
-			
-				
-				 <div class="col-sm-4" id="linechart3">
-				<canvas id="line_find" class="chart chart-line chart-xl" data="line2.data"
-				  labels="line2.labels" legend="true" series="line2.series"
-				  click="line2.onClick" >
-				</canvas> 
-				  </div>
-                
-				
-				<div class="col-sm-4" id="map" style="height: 220px;"></div>
-
-
-  
-
-
-            </div>
-         
-		 <div class="col-sm-12" ng-controller="ChartCtrl" id="testcln">        </div> 
-		
-		<div class="col-sm-12" ng-controller="ChartCtrl" id="testcln2">		</div>
-		<div class="col-sm-12" ng-controller="ChartCtrl" id="testcln3">		</div>
-		<div class="col-sm-12" ng-controller="ChartCtrl" id="testcln4">		</div>
-		<div class="col-sm-12" ng-controller="ChartCtrl" id="testcln5">		</div>
-		<div class="col-sm-12" ng-controller="ChartCtrl" id="testcln6">		</div>
-        </div>
-    </div>
-</div>
-<div class="row col-lg-12" id = "haha">
-    <div class="panel panel-default">
-	<div class="panel-heading">WIDGET SECLECTER</div>
-	<div class="col-sm-2" style ="height: 220px; overflow-y: scroll; border-radius:10px; border-style: solid;">
+                <div class="col-sm-2" style ="height: 220px; overflow-y: scroll; border-radius:10px; border-style: solid;">
                     <strong>Widget Selector</strong><br>
                     Disease
                     <select>
-                      <option value="Influenza">Influenza</option>
-                      <option value="Ebola">Ebola</option>
-                      <option value="SARS">SARS</option>
-                      <option value="HIV">HIV</option>
+                      <option id="Influenzaoption" value="Influenza">Influenza</option>
+                      <option id="Zikaoption" value="Zika">Zika</option>
                     </select>
                     <br>
-                    &nbsp&nbsp&nbsp
-					<input type="checkbox" id = "Influenzanet" name="datasource" value="Influenzanet" > Influenzanet<br>
-                    &nbsp&nbsp&nbsp
-					<input type="checkbox" name="datasource" value="FluSurvey"> FluSurvey<br>
-					<input type="checkbox" id = "News" name="datasource" value="News"> News<br>
-                    <input type="checkbox" id = "Twitter" name="datasource" value="Twitter"> Twitter<br>
-                    <input type="checkbox" name="datasource" value="MEDISYS"> MEDISYS<br>
-                    <input type="checkbox" name="datasource" value=" Lab/Clinic Reports"> Lab/Clinic Reports<br>
-                    <input type="checkbox" name="datasource" value="Heatmap" > Heatmap<br>
-                    <button type="button" onclick="singledata()">Submit</button>  
+                    <!--button type="button" id="testdata">test</button--> 
+                    
+                    &nbsp&nbsp&nbsp<input type="checkbox" id="influenzaNetCheck" checked> Influenzanet<br>
+                    &nbsp&nbsp&nbsp<input type="checkbox" id="fluSurveyCheck" checked> FluSurvey<br>
+                    <input type="checkbox" id="twitterCheck" checked> Twitter<br>
+                    <input type="checkbox" id="medisysCheck" checked> MEDISYS<br>
+                    <input type="checkbox" id="labReportCheck" checked> Lab/Clinic Reports<br>
+                    <input type="checkbox" id="histReportCheck" checked> Historical Reports<br>
+                    <input type="checkbox" id="heatMpaCheck" checked> Heatmap<br>
+                    <button type="button" id="mainSubmit">Submit</button> 
+              
+                    
                 </div>
-        <!--<div class="panel-heading">Rumours</div>-->
-        <div class="panel-body">
+
+                <div class="col-sm-4" id="line-chart1">
+                    <canvas id="line customline-v1" class="chart chart-line chart-xl" data="swineline.data" labels="swineline.labels" legend="true"
+                    click="line.onClick" series="swineline.series" options="swineline.options" colours="swineline.colours" onClick="saveChart1()"></canvas>
+                </div>
+
+                <div class="col-sm-4" id="line-chart">
+                    <canvas id="line customline-v" class="chart chart-line chart-xl" data="survellianceline.data" labels="survellianceline.labels" legend="true" click="survellianceline.onClick" series="survellianceline.series" options="survellianceline.options" colours="survellianceline.colours" onClick="saveChart2()"></canvas>
+                </div>
+
+                <div class="col-sm-3">
+                    <input type="checkbox" id = "twitterHeatMapCheckBox"> Twitter<br>
+                    <input type="checkbox" id = "medisysHeatMapCheckBox"> MediSYS<br>
+                    <input type="checkbox" id = "clinicalReportHeapMapCheckBox"> Clinical Reports<br>
+                    <button type="button" id = "mapSubmit">Submit</button><br>
+
+                    <!--button type="button" id="generateReport" onClick="generateReport()">Save Charts</button-->
+                </div>
+
+                <div class="col-sm-4" id="map" style="height: 220px;">
+                </div>
+
 
 
 
                 
+                <!--<div class="col-sm-4 pre-scrollable" style="max-height:250px" id="rumourinfo" ng-controller="ChartCtrl">
+                    <table class="table" id="lineTable-v">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Top Users
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="rowContent in rows">
+                                <td style="padding:0px;border-top:0;">{{rowContent._id}}</td>
+                                <td style="padding:0px;border-top:0;">{{rowContent.count}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
 
-                
+                <!--<div class="col-sm-4" id="rumourinfo" ng-controller="ChartCtrl">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h5>D. Marie</h5>
+                            <p>@itsmepanda1</p>
+                        </div>
+                        <div class="col-sm-3 pull-right">
+                            <img style="width:100%" src="bower_components/additions/profilepic.jpg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>Bio: <em>#America, forced medicine is #tyranny! If you value #freedom, stand against any attempts to remove vaccine exemptions. Vaccination is a medical prodedure!</em></p>
+                        <p>Joined: <em>January 2011</em></p>
+                    </div>
+                </div> -->
 
 
-                <!--comment-->
+            </div>
+        </div>
+    </div>
+</div>
 
-
-        
-		
-				
-
-
-  
-
-
+<div class="row col-lg-12">
+    <div class="panel panel-default">
+    <div class="panel-heading">Risk assessment Questions</div>
+            <div class="panel-body">
+                <div class="col-sm-12">
+                    <div class="col-sm-2">
+                        <ul class="list-group">
+                            <li class="list-group-item select_custom_v" id="stage0" onclick="loadThreatAnalysis(0);">Stage 0</li>
+                            <li class="list-group-item select_custom_v" id="stage1" onclick="loadThreatAnalysis(1);">Stage 1</li>
+                            <li class="list-group-item select_custom_v" id="stage2" onclick="loadThreatAnalysis(2);">Stage 2</br></li>
+                            <li class="list-group-item select_custom_v" id="stage3" onclick="loadThreatAnalysis(3);">Stage 3</li>
+                            <li class="list-group-item select_custom_v" id="stage4" onclick="loadThreatAnalysis(4);">Stage 4</li>
+                            <li class="list-group-item select_custom_v" id="stage5" onclick="loadThreatAnalysis(5);">Stage 5</li>
+                            </ul>
+                    </div>
+                    <div class="col-sm-10" id="threatAnalysisDisplay">
+                    <!--testing -->
+                        <ul class="list-group">
+                            <li class="list-group-item" onclick="loadThreatAnalysis(0);">Preparation</li>
+                            <li class="list-group-item" onclick="loadThreatAnalysis(1);">Collect event info</li>
+                            <li class="list-group-item" onclick="loadThreatAnalysis(2);">Perform structured literature search/systematically collect info about the (potential) aetiologic agent</li>
+                            <li class="list-group-item" onclick="loadThreatAnalysis(3);">Extract relevant evidence</li>
+                            <li class="list-group-item" onclick="loadThreatAnalysis(4);">Appraise evidence</li>
+                            <li class="list-group-item" onclick="loadThreatAnalysis(5);">Estimate risk</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div class="col-sm-12">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Discussions</strong></li>
+                        <li class="list-group-item">NFD</li>
+                        <li class="list-group-item">EWRS</li>
+                        <li class="list-group-item">DPIS</li>
+                        <li class="list-group-item">WHO reports</li>
+                    </ul>
+                    <ul class="list-group">
+                        <li class="list-group-item">Round Table Discussion</li>
+                    </ul>
+                </div>-->
+                <div class="col-sm-12">
+                    <div class="list-inline col-sm-6">
+                            <span><strong>Discussion Fora/Networks:   </strong></span>
+                            <button type="button" class="btn btn-default btn-sm">IHR</button>
+                            <button type="button" class="btn btn-default btn-sm">EWRS</button>
+                            <button type="button" class="btn btn-default btn-sm">EPIS</button>
+                            
+                        
+                    </div>
+                    <div class="list-inline col-sm-6">
+                            <span><button type="button" class="btn btn-default btn-sm pull-right">Round Table Discussions Archive</button> </span>
+                            <span><button type="button" class="btn btn-default btn-sm pull-right">Communicable Diseases Threats/WHO Reports</button></span>                            
+                    </div>
+                 </div>
             </div>
     </div>
 </div>
 
+<!--<div class="row col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="col-sm-12" ng-controller="ChartCtrl" style="height:500px;">
+
+                <div class="col-sm-12" id="network-graph">
+
+                    <div id="container">
+                      <style>
+                        #graph-container {
+                          top: 0;
+                          bottom: 0;
+                          left: 0;
+                          right: 0;
+                          position: absolute;
+                          height:500px;
+                        }
+                      </style>
+                      <div id="graph-container"></div>
+                    </div>
+
+                    click="line.onClick" series="line.series"></canvas>
+                </div>
+
+                <div ng-mouseover="tweetData" class="col-sm-3" id="network-graph-info" style="border-left:1px solid #666; position:absolute; right:0; background:#FFF;">
+                </div>
 
 
+
+
+                    <table class="table" id="lineTable-v">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Top Links
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="rowContent in rows">
+                                <td style="padding:0px;border-top:0;">{{rowContent._id}}</td>
+                                <td style="padding:0px;border-top:0;">{{rowContent.count}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+
+
+                    <table class="table" id="lineTable-v">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Top Users
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="rowContent in rows">
+                                <td style="padding:0px;border-top:0;">{{rowContent._id}}</td>
+                                <td style="padding:0px;border-top:0;">{{rowContent.count}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-sm-4" id="rumourinfo" ng-controller="ChartCtrl">
+                    <div class="row">
+                        <div class="col-sm-9">
+                            <h5>D. Marie</h5>
+                            <p>@itsmepanda1</p>
+                        </div>
+                        <div class="col-sm-3 pull-right">
+                            <img style="width:100%" src="bower_components/additions/profilepic.jpg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p>Bio: <em>#America, forced medicine is #tyranny! If you value #freedom, stand against any attempts to remove vaccine exemptions. Vaccination is a medical prodedure!</em></p>
+                        <p>Joined: <em>January 2011</em></p>
+                    </div>
+                </div>
+
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+<div class="row col-lg-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="col-sm-12" ng-controller="ChartCtrl" style="height:250px;">
+                    <div class="col-sm-4 pre-scrollable" style="max-height:250px" id="toplinksinfo" ng-controller="ChartCtrl">
+                        <table class="table" id="lineTable-v">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Top Links
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr onclick="sendReq('http://t.co/ueqE5H09b9');">
+                                    <td style="padding:0px;border-top:0;">
+                                        CDC Scientist: ‘We scheduled meeting to destroy...
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        389
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('http://t.co/YUZdXihFXh');">
+                                    <td style="padding:0px;border-top:0;">
+                                        Posey CSPAN 7/29/15
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        364
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('http://t.co/lKfcemnsei');">
+                                    <td style="padding:0px;border-top:0;">
+                                        Mr Posey | Video
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        329
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('http://t.co/86sAqE8U00');">
+                                    <td style="padding:0px;border-top:0;">
+                                        REVEALED: Cancer industry profits 'locked in'...
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        209
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('http://t.co/52iRcjF9ns');">    
+                                    <td style="padding:0px;border-top:0;">
+                                        Mr Posey | Video
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        198
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('http://t.co/TNr6DCkR2k');">
+                                    <td style="padding:0px;border-top:0;">
+                                        CONGRESSMAN POESY DELIVERS BOMBSHE...
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        185
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('http://t.co/nviSACNLKY');">
+                                    <td style="padding:0px;border-top:0;">
+                                        Mr Posey | Video
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        176
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('https://t.co/G5OiweFSos');">
+                                    <td style="padding:0px;border-top:0;">
+                                        CDC Scientist: ‘We scheduled meeting to destroy...
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        160
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('http://t.co/Ge1e86sQgi');">
+                                    <td style="padding:0px;border-top:0;">
+                                        Posey CSPAN 7/29/15
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        121
+                                    </td>
+                                </tr>
+                                <tr onclick="sendReq('http://t.co/jLM6rf2zH4');">
+                                    <td style="padding:0px;border-top:0;">
+                                        Mr Posey | Video
+                                    </td>
+                                    <td style="padding:0px;border-top:0;">
+                                        103
+                                    </td>
+                                </tr>
+                                    
+                                    
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm-8 pre-scrollable" id="linkDisplayWidget" style="height:100%">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+<!--<div class="row">
+
+    <div class="col-lg-4 col-sm-12" id="line-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Rumours</div>
+            <div class="panel-body">
+                <canvas id="line" class="chart chart-line chart-xl" data="line.data" labels="line.labels" legend="true"
+                click="line.onClick" series="line.series"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="rumourinfo" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Rumour information</div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="rumourinfo" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Rumour information</div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-sm-12" id="bar-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Bar Chart / Other analysis</div>
+            <div class="panel-body">
+                <canvas id="bar" class="chart chart-bar" data="bar.data" labels="bar.labels" series="bar.series"
+                options="bar.options"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="bar-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Bar Chart / Other analysis</div>
+            <div class="panel-body">
+                <canvas id="bar" class="chart chart-bar" data="bar.data" labels="bar.labels" series="bar.series"
+                options="bar.options"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="doughnut-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Doughnut Chart</div>
+            <div class="panel-body">
+                <canvas id="doughnut" class="chart chart-doughnut chart-xs" data="donut.data" labels="donut.labels" legend="false"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-sm-12" id="radar-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Radar Chart</div>
+            <div class="panel-body">
+                <canvas id="area" class="chart chart-radar" data="radar.data" labels="radar.labels" click="onClick"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="pie-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Pie Chart</div>
+            <div class="panel-body">
+                <canvas id="pie" class="chart chart-pie chart-xs" data="pie.data" labels="pie.labels"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="polar area-chart" ng-controller="ChartCtrl">
+      <div class="panel panel-default">
+        <div class="panel-heading">Polar Area Chart</div>
+        <div class="panel-body">
+          <canvas id="polar" class="chart chart-polar-area" data="polar.data" labels="polar.labels"></canvas>
+      </div>
+  </div>
+</div>
+</div>
+<div class="row">
+    <div class="col-lg-4 col-sm-12" id="base-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Dynamic Chart</div>
+            <div class="panel-body">
+                <canvas id="base" class="chart chart-base" chart-type="dynamic.type" data="dynamic.data" labels="dynamic.labels" legend="true"></canvas>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary pull-right" ng-click="dynamic.toggle()">Toggle</button>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="base-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Dynamic Chart</div>
+            <div class="panel-body">
+                <canvas id="base" class="chart chart-base" chart-type="dynamic.type" data="dynamic.data" labels="dynamic.labels" legend="true"></canvas>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary pull-right" ng-click="dynamic.toggle()">Toggle</button>
+    </div>
+    <div class="col-lg-4 col-sm-12" id="base-chart" ng-controller="ChartCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">Dynamic Chart</div>
+            <div class="panel-body">
+                <canvas id="base" class="chart chart-base" chart-type="dynamic.type" data="dynamic.data" labels="dynamic.labels" legend="true"></canvas>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary pull-right" ng-click="dynamic.toggle()">Toggle</button>
+    </div>
+</div> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/mapData.js"></script> 
+<script type="text/javascript" src="/js/submit.js"></script> 
+
+<script src="/js/jquery-1.11.3.min.js"></script>
+<script src="/js/ion.rangeSlider.js"></script>
+
+<script src="/js/moment.js"></script>
+<script src="/js/moment.min.js"></script>
+
+<script src="/js/html2canvas.js"></script>
+<!--script src="/js/html2canvas.svg.js"></script-->
+
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-image/v0.0.3/leaflet-image.js'></script>
+
+
+
+<script type="text/javascript" src="/js/countryData.js"></script>
 
 <script type="text/javascript">
+
+
+
+
+
+
 
 
 /**
@@ -158,30 +556,115 @@
 
 
 //end 
-var id = 0 ;
-function getId(){
-return id ; 
-}
-
-function generateNextId(){
-id ++;
-//prompt("id = ",id);
-}
-
-var testlinechar = "testlinechart";
-function getlinecharId(){
-//prompt("id = ","testlinechart"+id);
-return "testlinechart"+id ; 
-}
+/*var i,
+    s,
+    N = 10,
+    E = 50,
+    g = {};
 
 
 $(document).ready(function(){
-	//var findelement = document.getElementById("line_find");
-	//findelement.setAttribute("data", "line2.data");
-	//findelement.data = "line2.data";
+
+        $.getJSON("../api/networkgraph", function(result){
+                g = result;
+                console.log(g);
+
+
+                // Instantiate sigma:
+                s = new sigma({
+                  graph: g,
+                  container: 'graph-container'
+                });
+
+                sigma.plugins.relativeSize(s, 1);
+                s.startForceAtlas2({linLogMode: false, barnesHutOptimize: true, gravity:3});
+
+
+                setTimeout(function(){
+                    s.stopForceAtlas2();
+                }, 10000);
+
+
+                //s.bind('overNode outNode clickNode doubleClickNode rightClickNode', function(e) {
+                s.bind('clickNode', function(e) {
+                    console.log(e.type, e.data.node.label, e.data.captor, e.data.node.label);
+                    document.getElementById('network-graph-info').innerHTML = "<p><h3>@"+e.data.node.label+"</h3></p><p> Content: " +  e.data.node.text + "</p>"
+                    //$scope.tweetData = e.data.node.label;
+                });
+
+
+        });
+});
+
+
+
+function createRequestObject() {
+    var obj;
+    var browser = navigator.appName;
+    if (browser == "Microsoft Internet Explorer") {
+        obj = new ActiveXObject("Microsoft.XMLHTTP");
+    } else {
+        obj = new XMLHttpRequest();
+    }
+    return obj;
+}
+
+function sendReq(req) {   
+
+
+    document.getElementById('linkDisplayWidget').innerHTML = "<iframe id='extFrame' src='"+req+"' style='height:100%;width:100%;'></iframe>";
+
+
+  
+}
+
+function handleResponse() {    
+    if (http.readyState == 4) {
+        var response = http.responseText;
+        document.getElementById('linkDisplayWidget').innerHTML=response;
+    }
+} */
+var map = [];
+var datamap = [];
+var ysstimeSlideStartDate = moment("2014-01-01");
+var ysstimeSlideEndDate = moment("2014-01-30");
+
+
+var $range = $("#range");
+
+
+    $range.ionRangeSlider({
+        hide_min_max: true,
+        keyboard: true,
+
+        min: moment("2015-05-01").format("X"),//.subtract(1, "years").format("X"),
+        max: moment("2016-02-28").format("X"),//.format("X"),
+        from: moment("2009-06-30").format("X"),//+moment().subtract(6, "months").format("X"),
+        to: moment("2009-10-01").format("X"),//+moment().subtract(3, "months").format("X"),
+        type: 'double',
+//        step: 1,
+        grid: true,
+        prettify: function (num) {
+            return moment(num, "X").format("LL");
+        }
+    });
+
+
+
+
+
+
+
+$(document).ready(function(){
+
 // This earthquake data is sourced from New Zealand’s Geonet
 // site over a date range that covers a period of reasonable
 // activity in July/August 2013.
+
+
+
+
+
 var quakePoints = [
 [51.490393,-0.109152,2183], //lnglat and radius
 [51.536117, -0.122885,2138],
@@ -196,6 +679,110 @@ var quakePoints = [
 [53.508247, -2.735988,864]
 ];
 
+var twitterMapData =  [
+{ "label": "May 15", "quakePoints": [[51.490393,-0.109152,2183]]},
+{ "label": "Jun 15", "quakePoints": [[53.249595, -0.637693,574]]},
+{ "label": "Jul 15", "quakePoints": [[53.901294, -2.104019,2533]]},
+{ "label": "Aug 15", "quakePoints": [[55.125738, -1.898219,1575]]},
+{ "label": "Sep 15", "quakePoints": [[55.936173, -3.433145,3000]]},
+{ "label": "Oct 15", "quakePoints": [[51.536117, -0.122885,2138], [51.536117, -0.122885,2643]]},
+{ "label": "Nov 15", "quakePoints": [[51.190784, -1.992544,2536], [50.715424, -3.621795,2314]]},
+{ "label": "Dec 15", "quakePoints": [[53.508247, -2.735988,864]]}
+]
+
+function getColor(d) {
+    return d > 100 ? '#800026' :
+           d > 50  ? '#BD0026' :
+           d > 20  ? '#E31A1C' :
+           d > 10  ? '#FC4E2A' :
+           d > 5   ? '#FD8D3C' :
+           d > 2   ? '#FEB24C' :
+           d > 1   ? '#FED976' :
+                      '#FFEDA0';
+}
+
+function getColor2(d) {
+    return d > 1900 ? '#800026' :
+           d > 1860  ? '#BD0026' :
+           d > 1820  ? '#E31A1C' :
+           d > 1790  ? '#FC4E2A' :
+           d > 1760   ? '#FD8D3C' :
+           d > 1750   ? '#FEB24C' :
+           d > 1700   ? '#FED976' :
+                      '#FFEDA0';
+}
+
+function style(feature) {
+    return {
+        fillColor: getColor(feature.properties.SHAPE_Area),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
+function style2(feature) {
+    return {
+        fillColor: getColor2(feature.id),
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
+function style3(){
+    return {
+        weight:2,
+        opacity: 1,
+        color:'white',
+        dashArray: '3'
+    };
+}
+
+var heat;
+
+function getQuakePoints(){
+  var $this = $range;
+    from = moment($this.data("from"),"X");
+    to = moment($this.data("to"),"X");
+
+    var newArray = [];
+    var smalli;
+    var bigi;
+
+    for (var i=0; i<twitterMapData.length; ++i)
+    {
+      if (moment(from).format("MMM YY") == twitterMapData[i].label){
+        smalli = i;
+      }
+      if (moment(to).format("MMM YY") == twitterMapData[i].label){
+        bigi = i+1;
+      }
+    }
+
+    for (var j = smalli; j<bigi; j++)
+    {
+     // newArray.push(twitterLineData[j].quakePoints);
+      for (var k=0; k<twitterMapData[j].quakePoints.length; k++)
+      {
+        newArray.push(twitterMapData[j].quakePoints[k]);
+      }
+    }
+    console.log(twitterMapData[0].label);
+    console.log("hehe");
+    heat = L.heatLayer(newArray,{
+        radius: 20,
+        blur: 15, 
+        maxZoom: 17,
+    });
+
+
+    //return(heat);
+}
 
 
     var map = new L.Map('map', {
@@ -206,23 +793,233 @@ var quakePoints = [
         })
     });
 
-    var heat = L.heatLayer(quakePoints,{
-            radius: 20,
-            blur: 15, 
-            maxZoom: 17,
-        }).addTo(map);
-//
+  /*  var heat = L.heatLayer(getQuakePoints(),{
+        radius: 20,
+        blur: 15, 
+        maxZoom: 17,
+    });
+*/
 
-  
- // document.getElementById("line-chart2").innerHTML = '<canvas id="line-customline-v2" class="chart chart-line chart-xl" data="survellianceline.data" labels="survellianceline.labels" legend="true" click="survellianceline.onClick" series="survellianceline.series" options="survellianceline.options" colours="survellianceline.colours"></canvas>';
- 
+    var oldHeat = L.heatLayer(quakePoints,{
+        radius: 20,
+        blur: 15, 
+        maxZoom: 17,
+    });
+    $(document).ready(function(){
+    //  var $this = $range;
+    // from = moment($this.data("from"),"X");
+    // to = moment($this.data("to"),"X");
+    // var stmoment = moment(from).format("DD MMM YY");
+    // var endmoment =  moment(to).format("DD MMM YY");
+    // console.log(  stmoment+ " - " +endmoment);
+    // var startdate = new Date(stmoment);
+    // var enddate =  new Date(endmoment); 
+    // console.log(startdate);
+    // console.log(startdate>new Date());
+    var CountryNamelist = [];
+    var flag =0;
+    if(flag == 0){
+        $.get("http://localhost:8600/api/mapmedisyszika", function(response){
+           // var data = JSON.stringify(response );
+            console.log("get it");
+            //console.dir("Data: " +data );
+           
+            var dataset = response;
+            //var dataset = response;//.rows;
+                    //var rowslength = response.total_rows;
+                    var rowslength = response.length;
+                    for (var i = 0; i < rowslength; i++) {
+                        var year = dataset[i].year;
+                        var month =dataset[i].month;
+                        var day = dataset[i].day;
+                        var country = dataset[i].country;
+                        var unitdata = {"year":year,"month":month,"day":day,"country":country};
+                      //  var number = dataset[i].number;
+                        datamap.push(unitdata);
+                    }
+                   //console.dir(datamap);
+        });
+        flag =1;
+    }
+        
+//         setTimeout(function(){
 
-		
 
-		
+//    for (var i = 0; i < datamap.length; i++) {
+//        var unit = datamap[i];
+//        var year = unit.year;
+//        var month = unit.month;
+//        var day = unit.day;
+//        var country = unit.country;
+//        var date = new Date(year+"-"+month+"-"+day);
+//       // console.log(date);
+//        if(date > startdate&& date < enddate){
+//         CountryNamelist.push(country);
+//        }
+//    }
+// //console.dir(CountryNamelist);
+
+// for (var i = 0; i < CountryNamelist.length; i++) {
+//  var thiscountry = CountryNamelist[i];
+
+//  for (var j = 0; j < countryData.features.length; j++) {
+//      var country = countryData.features[j].properties.name ;
+//      if(country == thiscountry){
+//         // console.log(country+"[][]");
+//          var newdata = countryData.features[j];
+//          countryData2.features.push(newdata);
+//      }
+//  }
+// }
+// for (var i = 0; i < countryData2.features.length; i++) {
+//  var country = countryData2.features[i].properties.name ;
+//      console.log(country);
+// }
+// console.log(CountryNamelist);
+// //console.log(countryData2.features[1].properties.name);
+
+//         }, 1000);
+
 
 });
- //
+    // var mapmedZika;
+    //    mapmedZika = new Array(20);
+    //   for (var i = 0; i < mapmedZika.length; i++) {
+    //     mapmedZika[i]=new Array(12);
+    //     for (var j = 0; j < mapmedZika[i].length; j++) {
+    //         var number = daysInMonth(j+1,2000+i);
+    //     mapmedZika[i][j]=new Array(number);
+    //     }
+
+    //   }
+    //   for (var i = 0; i < mapmedZika.length; i++) {
+    //     for (var j = 0; j < mapmedZika[i].length; j++) {
+    //         for (var k = 0; k < mapmedZika[i][j].length; k++) {
+    //         mapmedZika[i][j][k]=0;
+    //         }
+    //     }
+    //   } 
+
+    var geoData = L.geoJson(statesData, {style: style});
+    var geoData2 = L.geoJson(statesData, {style: style2});
+    var geoData3 = L.geoJson(countryData2, {style: style3});
+
+/*document.getElementById("mainSubmit").addEventListener("click", function myFunction(){
+    getQuakePoints();
+});
+
+document.getElementById("twitterHeatMapCheckBox").addEventListener("click", function(){
+    var checkBox = this.checked;
+
+    if (checkBox == false){
+        map.removeLayer(oldHeat);
+    }
+    if (checkBox==true){
+        map.addLayer(heat);
+        oldHeat = heat;
+    }
+});
+
+document.getElementById("medisysHeatMapCheckBox").addEventListener("click", function(){
+    var checkBox = this.checked;
+
+    if (checkBox == false){
+        map.removeLayer(geoData);
+    }
+    if (checkBox==true){
+        map.addLayer(geoData);
+    }
+});
+
+document.getElementById("clinicalReportHeapMapCheckBox").addEventListener("click", function(){
+    var checkBox = this.checked;
+
+    if (checkBox == false){
+        map.removeLayer(geoData2);
+    }
+    if (checkBox==true){
+        map.addLayer(geoData2);
+    }
+});
+*/
+document.getElementById("mapSubmit").addEventListener("click", function(){
+     var $this = $range;
+    from = moment($this.data("from"),"X");
+    to = moment($this.data("to"),"X");
+    var stmoment = moment(from).format("DD MMM YY");
+    var endmoment =  moment(to).format("DD MMM YY");
+  //  console.log(  stmoment+ " - " +endmoment);
+    var startdate = new Date(stmoment);
+    var enddate =  new Date(endmoment); 
+    CountryNamelist = [];
+  for (var i = 0; i < datamap.length; i++) {
+       var unit = datamap[i];
+       var year = unit.year;
+       var month = unit.month;
+       var day = unit.day;
+       var country = unit.country;
+       var date = new Date(year+"-"+month+"-"+day);
+      // console.log(date);
+       if(date > startdate&& date < enddate){
+        CountryNamelist.push(country);
+       }
+   }
+//console.dir(CountryNamelist);
+countryData2 = {"type":"FeatureCollection","features":[
+{"type":"Feature","id":"CHN","properties":{"name":"China"},"geometry":{"type":"MultiPolygon","coordinates":[[[[110.339188,18.678395],[109.47521,18.197701],[108.655208,18.507682],[108.626217,19.367888],[109.119056,19.821039],[110.211599,20.101254],[110.786551,20.077534],[111.010051,19.69593],[110.570647,19.255879],[110.339188,18.678395]]],[[[127.657407,49.76027],[129.397818,49.4406],[130.582293,48.729687],[130.987282,47.790132],[132.506672,47.78897],[133.373596,48.183442],[135.026311,48.47823],[134.500814,47.57844],[134.112362,47.212467],[133.769644,46.116927],[133.097127,45.144066],[131.883454,45.321162],[131.025212,44.967953],[131.288555,44.11152],[131.144688,42.92999],[130.633866,42.903015],[130.640016,42.395009],[129.994267,42.985387],[129.596669,42.424982],[128.052215,41.994285],[128.208433,41.466772],[127.343783,41.503152],[126.869083,41.816569],[126.182045,41.107336],[125.079942,40.569824],[124.265625,39.928493],[122.86757,39.637788],[122.131388,39.170452],[121.054554,38.897471],[121.585995,39.360854],[121.376757,39.750261],[122.168595,40.422443],[121.640359,40.94639],[120.768629,40.593388],[119.639602,39.898056],[119.023464,39.252333],[118.042749,39.204274],[117.532702,38.737636],[118.059699,38.061476],[118.87815,37.897325],[118.911636,37.448464],[119.702802,37.156389],[120.823457,37.870428],[121.711259,37.481123],[122.357937,37.454484],[122.519995,36.930614],[121.104164,36.651329],[120.637009,36.11144],[119.664562,35.609791],[119.151208,34.909859],[120.227525,34.360332],[120.620369,33.376723],[121.229014,32.460319],[121.908146,31.692174],[121.891919,30.949352],[121.264257,30.676267],[121.503519,30.142915],[122.092114,29.83252],[121.938428,29.018022],[121.684439,28.225513],[121.125661,28.135673],[120.395473,27.053207],[119.585497,25.740781],[118.656871,24.547391],[117.281606,23.624501],[115.890735,22.782873],[114.763827,22.668074],[114.152547,22.22376],[113.80678,22.54834],[113.241078,22.051367],[111.843592,21.550494],[110.785466,21.397144],[110.444039,20.341033],[109.889861,20.282457],[109.627655,21.008227],[109.864488,21.395051],[108.522813,21.715212],[108.05018,21.55238],[107.04342,21.811899],[106.567273,22.218205],[106.725403,22.794268],[105.811247,22.976892],[105.329209,23.352063],[104.476858,22.81915],[103.504515,22.703757],[102.706992,22.708795],[102.170436,22.464753],[101.652018,22.318199],[101.80312,21.174367],[101.270026,21.201652],[101.180005,21.436573],[101.150033,21.849984],[100.416538,21.558839],[99.983489,21.742937],[99.240899,22.118314],[99.531992,22.949039],[98.898749,23.142722],[98.660262,24.063286],[97.60472,23.897405],[97.724609,25.083637],[98.671838,25.918703],[98.712094,26.743536],[98.68269,27.508812],[98.246231,27.747221],[97.911988,28.335945],[97.327114,28.261583],[96.248833,28.411031],[96.586591,28.83098],[96.117679,29.452802],[95.404802,29.031717],[94.56599,29.277438],[93.413348,28.640629],[92.503119,27.896876],[91.696657,27.771742],[91.258854,28.040614],[90.730514,28.064954],[90.015829,28.296439],[89.47581,28.042759],[88.814248,27.299316],[88.730326,28.086865],[88.120441,27.876542],[86.954517,27.974262],[85.82332,28.203576],[85.011638,28.642774],[84.23458,28.839894],[83.898993,29.320226],[83.337115,29.463732],[82.327513,30.115268],[81.525804,30.422717],[81.111256,30.183481],[79.721367,30.882715],[78.738894,31.515906],[78.458446,32.618164],[79.176129,32.48378],[79.208892,32.994395],[78.811086,33.506198],[78.912269,34.321936],[77.837451,35.49401],[76.192848,35.898403],[75.896897,36.666806],[75.158028,37.133031],[74.980002,37.41999],[74.829986,37.990007],[74.864816,38.378846],[74.257514,38.606507],[73.928852,38.505815],[73.675379,39.431237],[73.960013,39.660008],[73.822244,39.893973],[74.776862,40.366425],[75.467828,40.562072],[76.526368,40.427946],[76.904484,41.066486],[78.187197,41.185316],[78.543661,41.582243],[80.11943,42.123941],[80.25999,42.349999],[80.18015,42.920068],[80.866206,43.180362],[79.966106,44.917517],[81.947071,45.317027],[82.458926,45.53965],[83.180484,47.330031],[85.16429,47.000956],[85.720484,47.452969],[85.768233,48.455751],[86.598776,48.549182],[87.35997,49.214981],[87.751264,49.297198],[88.013832,48.599463],[88.854298,48.069082],[90.280826,47.693549],[90.970809,46.888146],[90.585768,45.719716],[90.94554,45.286073],[92.133891,45.115076],[93.480734,44.975472],[94.688929,44.352332],[95.306875,44.241331],[95.762455,43.319449],[96.349396,42.725635],[97.451757,42.74889],[99.515817,42.524691],[100.845866,42.663804],[101.83304,42.514873],[103.312278,41.907468],[104.522282,41.908347],[104.964994,41.59741],[106.129316,42.134328],[107.744773,42.481516],[109.243596,42.519446],[110.412103,42.871234],[111.129682,43.406834],[111.829588,43.743118],[111.667737,44.073176],[111.348377,44.457442],[111.873306,45.102079],[112.436062,45.011646],[113.463907,44.808893],[114.460332,45.339817],[115.985096,45.727235],[116.717868,46.388202],[117.421701,46.672733],[118.874326,46.805412],[119.66327,46.69268],[119.772824,47.048059],[118.866574,47.74706],[118.064143,48.06673],[117.295507,47.697709],[116.308953,47.85341],[115.742837,47.726545],[115.485282,48.135383],[116.191802,49.134598],[116.678801,49.888531],[117.879244,49.510983],[119.288461,50.142883],[119.279366,50.582908],[120.18205,51.643566],[120.738191,51.964115],[120.725789,52.516226],[120.177089,52.753886],[121.003085,53.251401],[122.245748,53.431726],[123.571507,53.458804],[125.068211,53.161045],[125.946349,52.792799],[126.564399,51.784255],[126.939157,51.353894],[127.287456,50.739797],[127.657407,49.76027]]]]}},
+]};
+for (var i = 0; i < CountryNamelist.length; i++) {
+ var thiscountry = CountryNamelist[i];
+
+ for (var j = 0; j < countryData.features.length; j++) {
+     var country = countryData.features[j].properties.name ;
+     if(country == thiscountry){
+        // console.log(country+"[][]");
+         var newdata = countryData.features[j];
+         countryData2.features.push(newdata);
+     }
+ }
+}
+for (var i = 0; i < countryData2.features.length; i++) {
+ var country = countryData2.features[i].properties.name ;
+     //console.log(country);
+}
+    //map.addLayer(geoData3);
+
+    var myPoints = document.getElementById("twitterHeatMapCheckBox").checked;
+    var myStates = document.getElementById("medisysHeatMapCheckBox").checked;
+    var myStates2 = document.getElementById("clinicalReportHeapMapCheckBox").checked;
+    
+    getQuakePoints();
+    
+    map.removeLayer(oldHeat);
+    map.removeLayer(geoData3);
+    map.removeLayer(geoData2);
+  
+ geoData3 = L.geoJson(countryData2, {style: style3});
+ //   if (myStates == true){
+//        map.addLayer(geoData);
+  /////  L.geoJson(statesData).addTo(map);
+ //   }
+
+    if (myStates == true){
+        map.addLayer(geoData3);
+    }
+
+    if (myPoints==true){
+        map.addLayer(heat);
+        oldHeat = heat;
+      //  heat.addTo(map);
+    }
+
+    if (myStates2 == true){
+        map.addLayer(geoData2);
+    }
+
+  });
+});
+
+
 
 function loadThreatAnalysis(stageNum) {
     if(stageNum <=6 && stageNum>=0) {
@@ -243,6 +1040,134 @@ function loadThreatAnalysis(stageNum) {
     }
 }
 
+
+
+document.getElementById("mainSubmit").addEventListener("click", function myFunction(){
+    document.getElementById("line-chart1").innerHTML = '<canvas id="line customline-v1" class="chart chart-line chart-xl" data="swineline.data" labels="swineline.labels" legend="true" click="line.onClick" series="swineline.series" options="swineline.options" colours="swineline.colours" onClick="saveChart1()"></canvas>';
+
+
+     var el = angular.element('#'+'line-chart1');//change with id
+        $scope = el.scope();
+        $injector = el.injector();
+        $injector.invoke(function($compile){
+        $compile(el)($scope)
+        })
+
+    document.getElementById("line-chart").innerHTML = '<canvas id="line customline-v" class="chart chart-line chart-xl" data="survellianceline.data" labels="survellianceline.labels" legend="true" click="survellianceline.onClick" series="survellianceline.series" options="survellianceline.options" colours="survellianceline.colours" onClick="saveChart2()"></canvas>';
+
+        var e= angular.element('#'+'line-chart');
+        $scope = e.scope();
+        $injector = e.injector();
+        $injector.invoke(function($compile){
+        $compile(e)($scope)
+        })    
+});
+
+function saveImage(divID, picName,imgName) {
+  //  d3.selectAll("svg text").style({ 'font-size':'12px'});
+  //  d3.selectAll(".c3-axis path").style({ 'fill':'none', 'stroke': '#000' });
+
+    html2canvas(document.getElementById(divID), {
+        onrendered: function(canvas) {
+            var canvasdata = canvas.toDataURL(imgName+"/png");
+            var a = document.createElement("a");
+            a.download = picName + ".png";
+            a.href = canvasdata;
+            a.click();
+        }
+    });
+}
+
+function saveMap(){
+    proxy: 'http://otile1.mqcdn.com/tiles/1.0.0/map/{z}/{x}/{y}.png';
+     html2canvas(document.getElementById("map"), {
+    //    
+        onrendered: function(canvas) {
+            var canvasdata = canvas.toDataURL("image/png");
+            var a = document.createElement("a");
+            a.download = "map.png";
+            a.href = canvasdata;
+            a.click();
+        }
+    });
+}
+
+function saveChart1(){
+         html2canvas(document.getElementById("line customline-v1"), {
+        onrendered: function(canvas) {
+            var canvasdata = canvas.toDataURL("image/png");
+            var a = document.createElement("a");
+            a.download = "chart1.png";
+            a.href = canvasdata;
+            a.click();
+        }
+    });
+}
+
+function saveChart2(){
+         html2canvas(document.getElementById("line customline-v"), {
+        onrendered: function(canvas) {
+            var canvasdata = canvas.toDataURL("image/png");
+            var a = document.createElement("a");
+            a.download = "chart2.png";
+            a.href = canvasdata;
+            a.click();
+        }
+    });
+}
+
+/*
+
+function generateReport(){
+    saveImage("line customline-v1", "chart1", "chart1");
+    saveImage("line customline-v", "chart2", "chart2");
+ //   saveImage("map", "map", "map");
+ //   saveImage("map", "map")
+}*/
+//////////////////////////////////
+/*var myNewsDataArr;
+
+var $http = angular.injector(['ng']).get('$http');
+$http.get("http://localhost:3000/api/test").success(function (response) {
+                  //    defer.resolve(response);
+                    console.log(response[0]);
+                    //$scope.rows = response.data;
+                    //alert("past");
+                   // myNewsDataArr = response;
+                   document.getElementById("demo").innerHTML = JSON.stringify(response);
+                });
+*/
+
+//////////////////////////////////////////
+
+
+/*var $http = angular.injector(['ng']).get('$http');
+$http.get("http://localhost:3000/api/test").success(function (response) {
+                  //    defer.resolve(response);
+                    //console.log(response);
+                    //$scope.rows = response.data;
+                    //alert("past");
+                    document.getElementById("demo").innerHTML = JSON.stringify(response);
+
+                });*/
+
+
+/*
+document.getElementById("demo").innerHTML = 5 + 6;
+document.getElementById("myName").innerHTML = "TEST";
+*/
+/*var mongoose = require('node_modules/mongoose/lib');
+var Schema = mongoose.Schema;
+
+mongoose.connect("mongodb://localhost/test");*/
+
+/*var mongoose = require('mongoose'),  
+    db = mongoose.createConnection('localhost', 'test');
+db.on('error', console.error.bind(console, 'connection error:')); 
+*/  
+
+
+
 /*<iframe width='100%' height='500px' frameBorder='0' src='https://a.tiles.mapbox.com/v4/vinom.73bc84e5/attribution,zoompan,zoomwheel,geocoder,share.html?access_token=pk.eyJ1Ijoidmlub20iLCJhIjoiOWMwZmRlN2U2M2RlNGZmMDMyMzYyMmQ4ZjZkOWNkMmUifQ.gw-9LYgMa09bLk41K4FjYQ'></iframe>
 */
 
@@ -250,152 +1175,5 @@ function loadThreatAnalysis(stageNum) {
     /*window.onresize = function(event) {
         timeline.updateDisplay();
     }*/
-	
-
-
-
-
-function singledata()
-{generateNextId();
-getlinecharId();
-//make a var
-var myNews = document.getElementById("News").checked;
-var myIn = document.getElementById("Influenzanet").checked;
-var myTwitter = document.getElementById("Twitter").checked;
-
-var number = 0;
-
-if (myNews == true){
-number ++;
-}
-
-if (myIn == true){
-number ++;
-}
-
-if (myTwitter == true){
-number ++;
-}
-
-
-
-//prompt(number,"number is ");
-var protest = {
-labels: ['May 09','Jun 09', 'Jul 09', 'Aug 09', 'Sep 09', 'Oct 09', 'Nov 09', 'Dec 09'],
-series: ['Twitter','News (x2)','Influenzanet (x25)'],
-data: [
-[6240,16325,25737,15424,22334,51680,27937,7822],
-[7354*2,8559*2,6991*2,9249*2,7167*2,8764*2,8230*2,2734*2],
-[19.3*25,36.5*25,636.5*25,112.8*25,67.7*25,196.7*25,191*25,118.1*25]
-],
-colours: ['#97BBCD','#46BFBD','#F7464A']
-
-}
-var	newdata = {
-labels: ['May 09 thwat','Jllll 09', 'Jul 09', 'Aug 09', 'Sep 09', 'Oct 09', 'Nov 09', 'Dec 09'],
-series: ['Influenzanet (x25)'],
-data: [
-
-[19.3*25,36.5*25,636.5*25,112.8*25,67.7*25,196.7*25,191*25,118.1*25]
-],
-colours: ['#F7464A']
-
-}
-
-
-//newdata.data =  newdata.data.push(protest.data[1]);
-newdata.data[0] = protest.data[0];
-//newdata.series = protest.series;
-if(getId()==1)
-document.getElementById("testcln").innerHTML = ' <div class="col-sm-4" id="' +   getlinecharId() +'"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
-//document.getElementById("testcln2").innerHTML = ' <div class="col-sm-4" id="testlinechart2"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
-if(getId()==2)
-document.getElementById("testcln2").innerHTML = ' <div class="col-sm-4" id="testlinechart2"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
-if(getId()==3)
-document.getElementById("testcln3").innerHTML = ' <div class="col-sm-4" id="testlinechart3"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
-if(getId()==4)
-document.getElementById("testcln4").innerHTML = ' <div class="col-sm-4" id="testlinechart4"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
-if(getId()==5)
-document.getElementById("testcln5").innerHTML = ' <div class="col-sm-4" id="testlinechart5"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
-if(getId()==6)
-document.getElementById("testcln6").innerHTML = ' <div class="col-sm-4" id="testlinechart6"><canvas id="test01" class="chart chart-line chart-xl ng-isolate-scope" data="Influenzanet.data" labels="Influenzanet.labels" legend="true" series="Influenzanet.series" click="Influenzanet.onClick" width="193" height="96" style="width: 193px; height: 96px;"></canvas></div>';
-
-//var el2 = angular.element('#testlinechart2');
-//$scope2 = el2.scope();
-//$injector2 = el2.injector();
-//$injector2.invoke(function($compile){
-//$compile(el2)($scope2)
-//})
-var el = angular.element('#'+getlinecharId());//change with id
-$scope = el.scope();
-//assign the value to Influenzanet
-if (number == 1){
-	if (myNews == true){
-	$scope.Influenzanet =$scope.News;
-	}
-	if (myIn == true){
-	$scope.Influenzanet =$scope.Influenzanet;
-	}
-	if (myTwitter == true){
-	$scope.Influenzanet =$scope.Twitter;
-	}
-}
-
-//working
-if (number == 2){
-	$scope.twosourcetest.label = $scope.swineline.label;
-//$scope.colours.label = $scope.colours.label;
-	if (myNews != true){
-
-	$scope.twosourcetest.series[0] = $scope.swineline.series[0];
-	$scope.twosourcetest.series[1] = $scope.swineline.series[2];
-
-	$scope.twosourcetest.data[0] = $scope.swineline.data[0];
-	$scope.twosourcetest.data[1] = $scope.swineline.data[2];
-
-	// $scope.twosourcetest.colours[0] = $scope.swineline.colours[0];
-	//  $scope.twosourcetest.colours[1] = $scope.swineline.colours[2];
-	}
-	if (myIn != true){
-	$scope.twosourcetest.series[0] = $scope.swineline.series[0];
-	$scope.twosourcetest.series[1] = $scope.swineline.series[1];
-
-	$scope.twosourcetest.data[0] = $scope.swineline.data[0];
-	$scope.twosourcetest.data[1] = $scope.swineline.data[1];
-
-	//$scope.twosourcetest.colours[0] = $scope.swineline.colours[0];
-	// $scope.twosourcetest.colours[1] = $scope.swineline.colours[1];
-	}
-	if (myTwitter != true){
-	$scope.twosourcetest.series[0] = $scope.swineline.series[1];
-	$scope.twosourcetest.series[1] = $scope.swineline.series[2];
-
-	$scope.twosourcetest.data[0] = $scope.swineline.data[1];
-	$scope.twosourcetest.data[1] = $scope.swineline.data[2];
-
-//  $scope.twosourcetest.colours[0] = $scope.swineline.colours[1];
-//  $scope.twosourcetest.colours[1] = $scope.swineline.colours[2];
-
-}
-
-$scope.Influenzanet = $scope.twosourcetest;
-}
-//$scope.Influenzanet = $scope.News;
-
-if (number == 3){
-	$scope.Influenzanet = $scope.swineline;
-}
-//var el = angular.element('#'+'testlinechart1');
-
-$injector = el.injector();
-$injector.invoke(function($compile){
-$compile(el)($scope)
-})
-
-
-
-}
-	
 </script>
 
-              
